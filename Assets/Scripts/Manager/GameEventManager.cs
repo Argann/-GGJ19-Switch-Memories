@@ -27,4 +27,26 @@ public static class GameEventManager
     /// "Action" -> UnlockAction
     /// </summary>
     public static GameEvent OnUnlockAction = new GameEvent("OnUnlockAction");
+
+    /// <summary>
+    /// Evenement appelé lorsqu'une photo passe à l'état 'to discover'
+    /// 
+    /// "Picture" -> Picture
+    /// </summary>
+    public static GameEvent OnPictureToDiscover = new GameEvent("OnPictureToDiscover");
+
+    /// <summary>
+    /// Evenement appelé lorsqu'une photo passe à l'état 'discovered'
+    /// 
+    /// "Picture" -> Picture
+    /// </summary>
+    public static GameEvent OnPictureDiscovered = new GameEvent("OnPictureDiscovered");
+
+    /// <summary>
+    /// Evenement appelé lorsqu'on change de personnage
+    /// 
+    /// "Character" -> Character
+    /// </summary>
+    /// <returns></returns>
+    public static GameEvent OnCharacterChange = new GameEvent("OnCharacterChange");
 }

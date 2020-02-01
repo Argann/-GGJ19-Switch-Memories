@@ -16,4 +16,5 @@ MonoBehaviour:
   targetCharacter: {fileID: 11400000, guid: cdadf1b7ed179014f93a7cdf3d8f236b, type: 2}
   unlockedPictures:
   - {fileID: 11400000, guid: 5bd651f673e11fb47919fd4e6bca6597, type: 2}
+  noteToJournal: Dose la mamie
   isUnlocked: 0

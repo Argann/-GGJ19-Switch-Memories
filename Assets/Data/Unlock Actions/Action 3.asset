@@ -16,4 +16,5 @@ MonoBehaviour:
   targetCharacter: {fileID: 11400000, guid: cdadf1b7ed179014f93a7cdf3d8f236b, type: 2}
   unlockedPictures:
   - {fileID: 11400000, guid: cad76ed102d0b5c418355df4784922f3, type: 2}
+  noteToJournal: 5... 4... 3... 2... 1...
   isUnlocked: 0

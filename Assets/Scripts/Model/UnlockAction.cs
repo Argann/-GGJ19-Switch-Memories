@@ -24,6 +24,11 @@ public class UnlockAction : ScriptableObject
     public List<Picture> unlockedPictures;
 
     /// <summary>
+    /// Que doit-on écrire dans les notes du journal ?
+    /// </summary>
+    public string noteToJournal;
+
+    /// <summary>
     /// Est ce que l'action à déjà été effectuée ?
     /// </summary>
     public bool isUnlocked = false;

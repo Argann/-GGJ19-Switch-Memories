@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Comportement permettant de déplacer un objet en le glissant

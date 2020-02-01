@@ -15,6 +15,8 @@ public class PictureManager : MonoBehaviour
 
     public Vector2 maxSpawnZonePos;
 
+    public Transform spawnParent;
+
     private static PictureManager instance;
 
     void Awake()
@@ -44,20 +46,34 @@ public class PictureManager : MonoBehaviour
     void OnEnable()
     {
         GameEventManager.OnUnlockAction.AddListener(OnUnlockActionEvent);
+        GameEventManager.OnPictureDiscovered.AddListener(OnPictureDiscovered);
     }
 
     void OnDisable()
     {
         GameEventManager.OnUnlockAction.RemoveListener(OnUnlockActionEvent);
+        GameEventManager.OnPictureDiscovered.RemoveListener(OnPictureDiscovered);
     }
     
     void OnUnlockActionEvent(GameEventPayload payload)
     {
         foreach (Picture picture in payload.Get<UnlockAction>("Action").unlockedPictures)
         {
-            Spawn(picture);
+            picture.state = Picture.PictureState.ToDiscover;
+
+            GameEventManager.OnPictureToDiscover.Invoke(new Dictionary<string, object>(){
+                ["Picture"] = picture
+            });
         }
     }
+
+    void OnPictureDiscovered(GameEventPayload _)
+    {
+        Picture p = _.Get<Picture>("Picture");
+
+        Spawn(p);
+    }
+
 
     void Spawn(Picture picture)
     {
@@ -79,7 +95,8 @@ public class PictureManager : MonoBehaviour
         GameObject go = GameObject.Instantiate(
             picturePrefab, 
             rPos, 
-            Quaternion.Euler(0, 0, Random.Range(minRotation, maxRotation))
+            Quaternion.Euler(0, 0, Random.Range(minRotation, maxRotation)),
+            spawnParent
             );
     }
 }
